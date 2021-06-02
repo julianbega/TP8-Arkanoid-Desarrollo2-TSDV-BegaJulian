@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovment : MonoBehaviour
 {
     public float speed;
+    public int lives;
     void Start()
     {
         
@@ -21,5 +22,18 @@ public class PlayerMovment : MonoBehaviour
         {
             transform.position += Vector3.left * speed * Time.fixedDeltaTime;
         }
+    }
+
+    void ReduceLives()
+    {
+        lives--;
+        if (lives < 0)
+        {
+            EmdGame();
+        }
+    }
+    void EmdGame()
+    {
+
     }
 }
