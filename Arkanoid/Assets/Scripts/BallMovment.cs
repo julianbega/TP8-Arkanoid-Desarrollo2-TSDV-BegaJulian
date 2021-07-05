@@ -38,8 +38,14 @@ public class BallMovment : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {               
-        if (collision.transform.tag == "Player" || collision.transform.tag == "Roof")
+       
+        if (collision.transform.tag == "Player" )
         {
+            float PlayerWidth = collision.transform.localScale.x;
+            if (this.transform.position.x < collision.transform.position.x)
+            {
+
+            }
             direction.y = direction.y * -1;
             speed += speedToAddInHit;
         }
@@ -47,6 +53,10 @@ public class BallMovment : MonoBehaviour
         {
             direction.x = direction.x * -1;
             speed += speedToAddInHit;
+        }
+        if (collision.transform.tag == "Roof")
+        {
+            direction.y = direction.y * -1;
         }
         if (collision.transform.tag == "Brick")
         {
